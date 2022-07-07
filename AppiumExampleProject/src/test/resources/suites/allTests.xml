@@ -1,0 +1,34 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Ubrir Tests">
+    <test name="Main Page Test">
+        <classes>
+            <class name="tests.MainPageTest"/>
+        </classes>
+    </test>
+    <test name="Login Page Test">
+        <classes>
+            <class name="tests.LoginPageTest"/>
+        </classes>
+    </test>
+        <test name="DemoVersion Page Test">
+            <classes>
+                <class name="tests.demoversion.DemoVersionPageTest"/>
+            </classes>
+        </test>
+    <test name="Payment Page Test">
+        <classes>
+            <class name="tests.demoversion.PaymentsPageTest"/>
+        </classes>
+    </test>
+    <test name="Salary Page Test">
+        <classes>
+            <class name="tests.demoversion.SalaryAccountTest"/>
+        </classes>
+    </test>
+    <test name="DebitCard Page Test">
+        <classes>
+            <class name="tests.demoversion.DebitCardPageTest"/>
+        </classes>
+    </test>
+</suite>
+

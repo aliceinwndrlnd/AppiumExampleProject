@@ -1,0 +1,17 @@
+devices:
+  - deviceName: "pixel3aAPI30"
+    platformName: "Android"
+    platformVersion: "11.0"
+pathToMyApp: "/src/main/resources/app/ubrir.apk"
+myAppPackage: "cb.ibank"
+myAppActivity: "cb.ibank.activities.StartupActivity"
+
+#Capabilities:
+#  pixel3aAPI30: "pixel3aAPI30"
+#  deviceName: "pixel3aAPI30"
+#  udid: "emulator-5554"
+#  platformName: "Android"
+#  platformVersion: "11.0"
+#  pathToMyApp: "/src/main/resources/app/ubrir.apk"
+#  myAppPackage: "cb.ibank"
+#  myAppActivity: "cb.ibank.activities.StartupActivity"
