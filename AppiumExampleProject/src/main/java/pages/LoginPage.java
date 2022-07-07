@@ -138,7 +138,6 @@ public class LoginPage extends AndroidBasePage {
     @Step("Check card number length information")
     public LoginPage checkInformationAboutCardNumber() {
         Assert.assertEquals(elements.getTextFromElement(CARD_NUMBER_LENGHT_INFORMATION), "Номер карты должен содержать 15 символов");
-        buttons.searchAndClickButtonBy(OK_BUTTON);
         return this;
     }
 }

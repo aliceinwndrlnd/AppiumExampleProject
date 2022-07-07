@@ -1,7 +1,6 @@
 package tests;
 
 import io.qameta.allure.Description;
-import io.qameta.allure.Flaky;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import сore.base.BaseTest;
@@ -31,7 +30,7 @@ public class LoginPageTest extends BaseTest {
                 .tapOkButton();
     }
 
-    @Flaky
+    //Тест, который падает (специально)
     @Description("Tap to By Card Login and check length of cards number field")
     @Test(priority = 3)
     public void checkCardNumberLength() {
@@ -39,6 +38,7 @@ public class LoginPageTest extends BaseTest {
                 .inputCardData(CARD_NUMBER)
                 .tapToCardPasswordField()
                 .tapInformIcon()
-                .checkInformationAboutCardNumber();
+                .checkInformationAboutCardNumber()
+                .tapOkButton();
     }
 }
