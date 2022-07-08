@@ -17,7 +17,10 @@ public class PaymentsPage extends AndroidBasePage {
 
     SoftAssert softAssert = new SoftAssert();
 
-
+    @AndroidFindBy(id = "cb.ibank:id/tutorial_view_message")
+    MobileElement VIEW_MESSAGE;
+    @AndroidFindBy(id = "cb.ibank:id/tutorial_view_title")
+    MobileElement VIEW_TITLE;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_transfer_header_text")
     MobileElement TRANSFER_HEADER;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_payments_header_text")
@@ -51,6 +54,14 @@ public class PaymentsPage extends AndroidBasePage {
         softAssert.assertTrue(elements.isElementExist(PAYMENTS_SETTINGS));
         softAssert.assertTrue(elements.isElementExist(NAVIGATE_UP_BUTTON));
         softAssert.assertTrue(elements.isElementExist(PAYMENTS_SEARCH));
+        softAssert.assertAll();
+        return this;
+    }
+
+    @Step("Check view message")
+    public PaymentsPage checkViewMessage() {
+        softAssert.assertEquals(elements.getTextFromElement(VIEW_TITLE), "Быстрые платежи");
+        softAssert.assertEquals(elements.getTextFromElement(VIEW_MESSAGE), "Все успешно выполненные операции временно сохраняются в меню быстрых платежей. По нажатию на ярлык быстрого платежа можно перейти к оплате без необходимости заполнять данные заново.");
         softAssert.assertAll();
         return this;
     }

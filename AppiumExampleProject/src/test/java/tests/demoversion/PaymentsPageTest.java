@@ -10,13 +10,13 @@ public class PaymentsPageTest extends DemoVersionBaseTest {
     @BeforeClass
     public void toGoToPaymentsPage() {
         demoVersionPage.tapToPaymentsButton();
-        paymentsPage.tapToNextButton();
     }
 
     @Description("Verify page's elements")
     @Test(priority = 1)
     public void verifyElementsTest() {
-        paymentsPage
+        paymentsPage.checkViewMessage()
+                .tapToNextButton()
                 .verifyElements();
     }
 
