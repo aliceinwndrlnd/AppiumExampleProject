@@ -34,6 +34,11 @@ public class Screen extends MobileElements {
         LOGGER.info("Page is scrollable");
     }
 
+    public void scrollablePageAndroidByText(String text) {
+        ((AndroidDriver<MobileElement>) driver).findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(" + "\"" + text + "\"" + ").instance(0));");
+        LOGGER.info("Page is scrollable");
+    }
+
 
     public void swipeScreenWithPressTime(Direction dir, int pressTime, Point pointStart) {
         final int ANIMATION_TIME = 200;
