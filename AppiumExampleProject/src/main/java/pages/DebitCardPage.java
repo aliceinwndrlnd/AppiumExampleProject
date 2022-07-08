@@ -5,7 +5,6 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Point;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import сore.base.AndroidBasePage;
 
@@ -56,10 +55,6 @@ public class DebitCardPage extends AndroidBasePage {
     MobileElement ORDER_CARD_BUTTON_TEXT;
     @AndroidFindBy(id = "cb.ibank:id/item_condition_description")
     MobileElement CONDITIONS_DESCRIPTION;
-    @AndroidFindBy(id = "cb.ibank:id/common_dialog_text")
-    MobileElement ERROR_MESSAGE;
-    @AndroidFindBy(id = "cb.ibank:id/common_dialog_button_ok")
-    MobileElement OK_BUTTON;
     @AndroidFindBy(xpath = "//android.widget.FrameLayout//android.view.ViewGroup//android.widget.ScrollView//android.widget.FrameLayout[1]//android.widget.FrameLayout")
     MobileElement FIRST_CARD_IMAGE;
     @AndroidFindBy(xpath = "//android.widget.FrameLayout//android.view.ViewGroup//android.widget.ScrollView//android.widget.FrameLayout[2]//android.widget.FrameLayout")
@@ -116,18 +111,6 @@ public class DebitCardPage extends AndroidBasePage {
     @Step("Choose Check-box option")
     public DebitCardPage chooseCheckBoxOption() {
         buttons.searchAndClickButtonBy(ACCEPT_CONDITIONS_CHECKBOX);
-        return this;
-    }
-
-    @Step("Check Error message")
-    public DebitCardPage checkErrorMessage() {
-        Assert.assertEquals(elements.getTextFromElement(ERROR_MESSAGE), "Недоступно в демо-режиме");
-        return this;
-    }
-
-    @Step("Tap OK button")
-    public DebitCardPage tapOkButton() {
-        buttons.searchAndClickButtonBy(OK_BUTTON);
         return this;
     }
 

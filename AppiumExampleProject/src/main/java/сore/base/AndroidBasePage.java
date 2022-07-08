@@ -9,9 +9,11 @@ import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
 import io.qameta.allure.Step;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import pages.DemoVersionPage;
 import pages.LoginPage;
+import pages.PaymentsPage;
 import utils.mobile.Waiters;
 
 import static utils.mobile.Waiters.getWaiters;
@@ -54,6 +56,11 @@ public class AndroidBasePage {
     protected MobileElement CURRENCY_RATES;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_welcome_test_settings")
     protected MobileElement TEST_SETTINGS;
+    @AndroidFindBy(id = "cb.ibank:id/common_dialog_text")
+    MobileElement ERROR_MESSAGE;
+    @AndroidFindBy(id = "cb.ibank:id/common_dialog_button_ok")
+    MobileElement OK_BUTTON;
+
 
     @Step("Verify elements")
     public AndroidBasePage verifyElements() {
@@ -81,6 +88,18 @@ public class AndroidBasePage {
     public DemoVersionPage clickDemoVersionPage() {
         buttons.searchAndClickButtonBy(DEMO_VERSION_BUTTON);
         return new DemoVersionPage();
+    }
+
+    @Step("Check Error message")
+    public AndroidBasePage checkErrorMessage() {
+        Assert.assertEquals(elements.getTextFromElement(ERROR_MESSAGE), "Недоступно в демо-режиме");
+        return this;
+    }
+
+    @Step("Tap Ok button")
+    public AndroidBasePage tapOkButton() {
+        buttons.searchAndClickButtonBy(OK_BUTTON);
+        return this;
     }
 
 }

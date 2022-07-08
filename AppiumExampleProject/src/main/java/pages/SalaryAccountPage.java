@@ -3,8 +3,6 @@ package pages;
 import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
-
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import сore.base.AndroidBasePage;
 
@@ -47,10 +45,6 @@ public class SalaryAccountPage extends AndroidBasePage {
     MobileElement TOP_UP_FROM_YOUR_OWN_ACCOUNT;
     @AndroidFindBy(id = "cb.ibank:id/view_progress_button_text")
     MobileElement TRANSFER_MONEY_BUTTON;
-    @AndroidFindBy(id = "cb.ibank:id/common_dialog_text")
-    MobileElement ERROR_MESSAGE;
-    @AndroidFindBy(id = "cb.ibank:id/view_progress_button_text")
-    MobileElement OK_BUTTON;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_transfer_to_account_amount")
     MobileElement ENTER_SUMM_FIELD;
 
@@ -103,18 +97,6 @@ public class SalaryAccountPage extends AndroidBasePage {
     @Step("Tap Transfer money Button")
     public SalaryAccountPage tapTransferMoneyButton() {
         buttons.searchAndClickButtonBy(TRANSFER_MONEY_BUTTON);
-        return this;
-    }
-
-    @Step("Check error message")
-    public SalaryAccountPage checkErrorMessage() {
-        Assert.assertEquals(elements.getTextFromElement(ERROR_MESSAGE), "Недоступно в демо-режиме");
-        return this;
-    }
-
-    @Step("Tap OK button")
-    public SalaryAccountPage tapOkButton() {
-        buttons.searchAndClickButtonBy(OK_BUTTON);
         return this;
     }
 }

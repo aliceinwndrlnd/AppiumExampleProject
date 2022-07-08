@@ -5,7 +5,6 @@ import io.appium.java_client.MobileElement;
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.qameta.allure.Step;
 import org.openqa.selenium.Point;
-import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 import сore.base.AndroidBasePage;
 
@@ -39,10 +38,8 @@ public class PaymentsPage extends AndroidBasePage {
     MobileElement NEXT_BUTTON;
     @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'Оплата услуг ЖКХ')]")
     MobileElement PAYMENTS_OF_UTILITY_SERVICES;
-    @AndroidFindBy(id = "cb.ibank:id/common_dialog_text")
-    MobileElement ERROR_MESSAGE;
-    @AndroidFindBy(id = "cb.ibank:id/common_dialog_button_ok")
-    MobileElement OK_BUTTON;
+    @AndroidFindBy(xpath = "//android.widget.TextView[contains(@text, 'По реквизитам')]")
+    MobileElement PAYMENT_BY_REQUISITES;
 
 
     @Step("Verify elements")
@@ -81,21 +78,15 @@ public class PaymentsPage extends AndroidBasePage {
         return this;
     }
 
-    @Step("Check Error message")
-    public PaymentsPage checkErrorMessage() {
-        Assert.assertEquals(elements.getTextFromElement(ERROR_MESSAGE), "Недоступно в демо-режиме");
-        return this;
-    }
-
-    @Step("Tap Ok button")
-    public PaymentsPage tapOkButton() {
-        buttons.searchAndClickButtonBy(OK_BUTTON);
-        return this;
-    }
-
     @Step("Swipe to the right side on Payments section")
     public PaymentsPage swipeToTheRightSide() {
         screen.swipeScreenWithPressTime(Screen.Direction.RIGHT, 800, rightSwipePointForPaymentsLocation);
+        return this;
+    }
+
+    @Step("Tap By requisites payment")
+    public PaymentsPage tapByRequisitesPayment() {
+        buttons.searchAndClickButtonBy(PAYMENT_BY_REQUISITES);
         return this;
     }
 }

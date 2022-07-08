@@ -2,10 +2,7 @@ package tests.demoversion;
 
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Listeners;
-import pages.DebitCardPage;
-import pages.DemoVersionPage;
-import pages.PaymentsPage;
-import pages.SalaryAccountPage;
+import pages.*;
 import utils.mobile.Listener;
 import сore.base.AndroidBasePage;
 import сore.base.BaseTest;
@@ -18,6 +15,7 @@ public class DemoVersionBaseTest extends BaseTest {
     protected SalaryAccountPage salaryAccountPage = new SalaryAccountPage();
     protected DebitCardPage debitCardPage = new DebitCardPage();
     protected PaymentsPage paymentsPage = new PaymentsPage();
+    protected PaymentByRequisitesPage paymentByRequisitesPage = new PaymentByRequisitesPage();
 
     @BeforeTest
     public void goToDemoVersionPage() {
