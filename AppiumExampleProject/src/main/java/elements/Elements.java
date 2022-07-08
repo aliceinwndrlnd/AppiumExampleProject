@@ -59,7 +59,7 @@ public class Elements extends MobileElements {
         }
     }
 
-    public void searchFiledAndSendKey(MobileElement mobileElement, String key) {
+    public void searchFieldAndSendKey(MobileElement mobileElement, String key) {
         var searchField = waiters.waitForElementClickable(mobileElement);
         searchField.clear();
         searchField.sendKeys(key);
