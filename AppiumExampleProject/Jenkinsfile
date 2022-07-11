@@ -1,0 +1,29 @@
+pipeline {
+    agent any
+
+    tools {
+        maven "M3"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                sh 'mvn clean'}}
+        stage('Test run') {
+            steps {
+                echo "---------------------------------------------Started src/test/resources/suites/allTests.xml -----------------------------------------------------"
+                sh 'mvn test -Dsuite=src/test/resources/suites/allTests.xml'}}
+        stage('Reports') {
+                steps {
+                    script {
+                        allure([
+                            includeProperties: false,
+                            jdk: '',
+                            properties: [],
+                            reportBuildPolicy: 'ALWAYS',
+                            results: [[path: 'target/allure-results']]
+                        ])}
+                   }
+           }
+        }
+    }
