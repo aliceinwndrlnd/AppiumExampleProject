@@ -12,7 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 git url: 'https://github.com/aliceinwndrlnd/AppiumExampleProject.git'
-                bat 'mvn clean'}}
+                bat 'mvn -f AppiumExampleProject/pom.xml clean install'}}
         stage('Test run') {
             steps {
                 echo "---------------------------------------------Started src/test/resources/suites/allTests.xml -----------------------------------------------------"
