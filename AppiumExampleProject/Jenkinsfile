@@ -4,6 +4,10 @@ pipeline {
     tools {
         maven "M3"
     }
+    environment {
+            SUITE = "src/test/resources/suites/allTests.xml"
+        }
+
 
     stages {
         stage('Build') {
