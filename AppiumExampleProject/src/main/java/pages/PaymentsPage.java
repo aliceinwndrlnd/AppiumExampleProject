@@ -72,7 +72,7 @@ public class PaymentsPage extends AndroidBasePage {
 
     @Step("Tap to Payment of utility services")
     public PaymentsPage tapToPaymentOfUtilityServices() {
-        screen.swipeScreenWithPressTime(Screen.Direction.LEFT, 900, leftSwipePointForPaymentsLocation);
+        screen.swipeScreenWithPressTime(Screen.Direction.LEFT, 500, leftSwipePointForPaymentsLocation);
         waiters.isElementExist(PAYMENTS_OF_UTILITY_SERVICES);
         buttons.searchAndClickButtonBy(PAYMENTS_OF_UTILITY_SERVICES);
         return this;
