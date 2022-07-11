@@ -11,7 +11,7 @@ import сore.base.AndroidBasePage;
 
 public class PaymentsPage extends AndroidBasePage {
 
-    private final Point leftSwipePointForPaymentsLocation = screen.setPointForSwipe(1.4F, 1.2F);
+    private final Point leftSwipePointForPaymentsLocation = screen.setPointForSwipe(1.3F, 1.05F);
     private final Point rightSwipePointForPaymentsLocation = screen.setPointForSwipe(7.3F, 1.2F);
 
     SoftAssert softAssert = new SoftAssert();
@@ -72,7 +72,7 @@ public class PaymentsPage extends AndroidBasePage {
 
     @Step("Tap to Payment of utility services")
     public PaymentsPage tapToPaymentOfUtilityServices() {
-        screen.swipeScreenWithPressTime(Screen.Direction.LEFT, 500, leftSwipePointForPaymentsLocation);
+        screen.swipeScreenWithPressTime(Screen.Direction.LEFT, 600, leftSwipePointForPaymentsLocation);
         waiters.isElementExist(PAYMENTS_OF_UTILITY_SERVICES);
         buttons.searchAndClickButtonBy(PAYMENTS_OF_UTILITY_SERVICES);
         return this;
