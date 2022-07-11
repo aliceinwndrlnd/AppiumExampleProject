@@ -9,7 +9,7 @@ public class SalaryAccountTest extends DemoVersionBaseTest {
     private static final String TRANSFER_SUM = "678908908765";
 
     @BeforeClass
-    public void toGotoDemoVersionPage() {
+    public void toGotoSalaryAccountPage() {
         demoVersionPage
                 .tapToSalaryAccount();
     }
