@@ -8,15 +8,15 @@ pipeline {
             SUITE = "src/test/resources/suites/allTests.xml"
         }
 
-
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean'}}
+                git url: 'https://github.com/aliceinwndrlnd/AppiumExampleProject.git'
+                bat 'mvn clean'}}
         stage('Test run') {
             steps {
                 echo "---------------------------------------------Started src/test/resources/suites/allTests.xml -----------------------------------------------------"
-                sh 'mvn test -Dsuite=src/test/resources/suites/allTests.xml'}}
+                bat 'mvn test -Dsuite=src/test/resources/suites/allTests.xml'}}
         stage('Reports') {
                 steps {
                     script {
