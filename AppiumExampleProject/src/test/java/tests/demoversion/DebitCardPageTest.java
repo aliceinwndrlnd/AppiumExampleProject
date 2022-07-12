@@ -16,7 +16,7 @@ public class DebitCardPageTest extends DemoVersionBaseTest {
     @Test(priority = 1)
     public void swipeAndCheckImagesTest() {
         debitCardPage.swipeImages()
-        .checkImagesExist();
+                .checkImagesExist();
     }
 
     @Description("Verification of Debit Card Page's elements")
