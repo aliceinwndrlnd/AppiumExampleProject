@@ -9,15 +9,18 @@ public class LoginPageTest extends BaseTest {
 
     private static final String EMAIL = "test@test.by";
     private static final String CARD_NUMBER = "5678";
+    private static final String PASSWORD = "1234";
 
     @BeforeClass
     public void toGoToLoginPage() {
+
         androidBasePage.clickLoginPage();
     }
 
     @Description("Verification of Login Page's elements")
     @Test(priority = 1)
     public void verifyLoginPageElementsTest() {
+
         loginPage.elementsIsEnabled();
     }
 
@@ -30,9 +33,17 @@ public class LoginPageTest extends BaseTest {
                 .tapOkButton();
     }
 
-    //Тест, который падает (специально)
-    @Description("Tap to By Card Login and check length of cards number field")
+    @Description("Check Show password button is working")
     @Test(priority = 3)
+    public void checkShowPasswordBtnWork() {
+        loginPage.tapAndInputDataOnPasswordField(PASSWORD)
+                .tapShowPasswordButton()
+                .checkDataInPasswordFieldIsVisible(PASSWORD);
+    }
+
+
+    @Description("Tap to By Card Login and check length of cards number field")
+    @Test(priority = 4)
     public void checkCardNumberLength() {
         loginPage.tapByCard()
                 .inputCardData(CARD_NUMBER)

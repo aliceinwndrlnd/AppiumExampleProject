@@ -21,6 +21,10 @@ public class LoginPage extends AndroidBasePage {
     MobileElement PASSWORD_FIELD;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_login_button_forgot_login_or_password")
     MobileElement FORGOT_LOGIN_OR_PASS_BUTTON;
+
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.EditText")
+    MobileElement PASSWORD_TEXT_FIELD;
+
     @AndroidFindBy(id = "cb.ibank:id/view_controller_login_button_login")
     MobileElement LOGIN_BUTTON;
     @AndroidFindBy(id = "cb.ibank:id/view_progress_button_text")
@@ -45,6 +49,12 @@ public class LoginPage extends AndroidBasePage {
     MobileElement CARD_NUMBER_LENGHT_INFORMATION;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_sign_in_with_card_field_password")
     MobileElement CARD_PASSWORD_FIELD;
+    @AndroidFindBy(xpath = "//*[@text='Идентификатор / логин']")
+    MobileElement PLACEHOLDER_LOGIN;
+    @AndroidFindBy(xpath = "//*[@text='Пароль']")
+    MobileElement PLACEHOLDER_PASSWORD;
+    @AndroidFindBy(accessibility = "Show password")
+    MobileElement SHOW_PASSWORD_BUTTON;
 
 
     @Step("Verify elements")
@@ -60,6 +70,8 @@ public class LoginPage extends AndroidBasePage {
         softAssert.assertTrue(elements.isElementExist(PASSWORD_FIELD));
         softAssert.assertEquals(BY_CARD_SECTION.getAttribute("content-desc"), "По карте");
         softAssert.assertEquals(BY_LOGIN_SECTION.getAttribute("content-desc"), "По Логину");
+        softAssert.assertEquals(PLACEHOLDER_LOGIN.getText(), "Идентификатор / логин");
+        softAssert.assertEquals(PLACEHOLDER_PASSWORD.getText(), "Пароль");
         softAssert.assertAll();
         return this;
     }
@@ -78,6 +90,17 @@ public class LoginPage extends AndroidBasePage {
         return this;
     }
 
+    @Step("Tap Show password button")
+    public LoginPage tapShowPasswordButton() {
+        buttons.searchAndClickButtonBy(SHOW_PASSWORD_BUTTON);
+        return this;
+    }
+
+    @Step("Check data in password field is visible")
+    public LoginPage checkDataInPasswordFieldIsVisible(String password) {
+        Assert.assertEquals(PASSWORD_TEXT_FIELD.getText(), password);
+        return this;
+    }
 
     @Step("Check error message in notEnoughData case")
     public LoginPage checkErrorMessageInNotEnoughDataCase() {
@@ -137,7 +160,7 @@ public class LoginPage extends AndroidBasePage {
 
     @Step("Check card number length information")
     public LoginPage checkInformationAboutCardNumber() {
-        Assert.assertEquals(elements.getTextFromElement(CARD_NUMBER_LENGHT_INFORMATION), "Номер карты должен содержать 15 символов");
+        Assert.assertEquals(elements.getTextFromElement(CARD_NUMBER_LENGHT_INFORMATION), "Номер карты должен содержать 16 символов");
         return this;
     }
 }
