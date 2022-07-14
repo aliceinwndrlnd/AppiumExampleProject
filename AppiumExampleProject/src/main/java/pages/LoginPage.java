@@ -21,10 +21,8 @@ public class LoginPage extends AndroidBasePage {
     MobileElement PASSWORD_FIELD;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_login_button_forgot_login_or_password")
     MobileElement FORGOT_LOGIN_OR_PASS_BUTTON;
-
     @AndroidFindBy(xpath = "//android.widget.LinearLayout[2]/android.widget.FrameLayout/android.widget.EditText")
     MobileElement PASSWORD_TEXT_FIELD;
-
     @AndroidFindBy(id = "cb.ibank:id/view_controller_login_button_login")
     MobileElement LOGIN_BUTTON;
     @AndroidFindBy(id = "cb.ibank:id/view_progress_button_text")
