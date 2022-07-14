@@ -17,6 +17,8 @@ public class LoginPage extends AndroidBasePage {
     MobileElement LOGIN_PAGE_TITLE;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_login_login_edit_text_layout")
     MobileElement LOGIN_FIELD;
+    @AndroidFindBy(xpath = "//android.widget.LinearLayout[1]/android.widget.FrameLayout/android.widget.EditText")
+    MobileElement LOGIN_FIELD_TEXT;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_login_password_edit_text_layout")
     MobileElement PASSWORD_FIELD;
     @AndroidFindBy(id = "cb.ibank:id/view_controller_login_button_forgot_login_or_password")
@@ -159,6 +161,16 @@ public class LoginPage extends AndroidBasePage {
     @Step("Check card number length information")
     public LoginPage checkInformationAboutCardNumber() {
         Assert.assertEquals(elements.getTextFromElement(CARD_NUMBER_LENGHT_INFORMATION), "Номер карты должен содержать 16 символов");
+        return this;
+    }
+
+    @Step("Clear the login field")
+    public LoginPage clearLoginField() {
+        int stringLength = LOGIN_FIELD_TEXT.getText().length();
+        buttons.searchAndClickButtonBy(LOGIN_FIELD_TEXT);
+        for (int i = 0; i < stringLength; i++) {
+            buttons.clickButtonBackspaceOnKeyboardAndroid();
+        }
         return this;
     }
 }

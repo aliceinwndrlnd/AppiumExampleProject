@@ -36,7 +36,8 @@ public class LoginPageTest extends BaseTest {
     @Description("Check Show password button is working")
     @Test(priority = 3)
     public void checkShowPasswordBtnWork() {
-        loginPage.tapAndInputDataOnPasswordField(PASSWORD)
+        loginPage.clearLoginField()
+                .tapAndInputDataOnPasswordField(PASSWORD)
                 .tapShowPasswordButton()
                 .checkDataInPasswordFieldIsVisible(PASSWORD);
     }
