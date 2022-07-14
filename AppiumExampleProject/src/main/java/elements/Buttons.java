@@ -18,7 +18,7 @@ public class Buttons extends MobileElements {
         waitedMobileElement.click();
     }
 
-    public void clickButtonBackOnKeyboardAndroid(AndroidDriver<MobileElement> androidDriver) {
-        androidDriver.pressKey(new KeyEvent(AndroidKey.BACK));
+    public void clickButtonBackspaceOnKeyboardAndroid() {
+        ((AndroidDriver) driver).pressKey(new KeyEvent(AndroidKey.DEL));
     }
 }
