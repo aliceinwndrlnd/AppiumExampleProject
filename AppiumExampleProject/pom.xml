@@ -119,6 +119,12 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>${maven.surefire.version}</version>
                 <configuration>
+                    <systemPropertyVariables>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>allure-results</value>
+                        </property>
+                    </systemPropertyVariables>
                     <testFailureIgnore>true</testFailureIgnore>
                     <suiteXmlFiles>
                         <suiteXmlFile> src/test/resources/suites/allTests.xml </suiteXmlFile>
