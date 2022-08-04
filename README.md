@@ -1,8 +1,8 @@
 # AppiumExampleProject
 
-#Autotest framework#
+#Autotest framework
 
-#Stack#
+#Stack
 - Java 11
 - Appium 
 - TestNG
