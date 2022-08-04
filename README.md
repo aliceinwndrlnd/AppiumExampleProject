@@ -1,5 +1,3 @@
-# AppiumExampleProject
-
 # Autotest framework
 
 # Stack
